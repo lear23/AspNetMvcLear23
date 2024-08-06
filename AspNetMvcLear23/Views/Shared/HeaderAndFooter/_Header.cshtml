@@ -1,0 +1,45 @@
+﻿<div class="container">
+
+    <a id="logo" asp-controller="Home" asp-action="Home"><img src="@Url.Content("~/Images/Lear23.svg")" alt=""></a>
+
+    <div id="menu" class="pt-4 ">
+
+        <a asp-action="Home" asp-controller="Home" class="hover:text-white mr-4">Overview</a>
+        <a asp-action="Home" asp-controller="Home" class="hover:text-white mr-4">Features</a>
+        <a asp-controller="Contact" asp-action="Contact" class="hover:text-white mr-4">Contact</a>
+
+    </div>
+
+    <div class="account-buttons">
+        <a asp-controller="Auth" asp-action="SignIn" class="btn-theme"><i class="fa-solid fa-right-to-bracket"></i><span>Sign in</span></a>
+        <a asp-controller="Auth" asp-action="SignUp" class="btn-theme"><i class="fa-solid fa-user"></i><span>Sign up</span></a>
+    </div>
+
+
+
+    <button id="abrir" class="open-menu btnmenu"><i class="fa-solid fa-bars"></i></button>
+    <nav class="btn-mobile" id="nav">
+        <button class="close-menu btnmenu" id="cerrar"><i class="fa-regular fa-rectangle-xmark"></i></button>
+        <ul class="nav-list">
+            <li><a href="#showcase" class="menu-link">Overview</a></li>
+            <li><a href="#features" class="menu-link">Features</a></li>
+            <li>
+                @if (ViewContext.RouteData.Values["Controller"]!.ToString() != "Auth")
+                {
+                    <a asp-controller="Home" asp-action="Contact" class="menu-link">Contact</a>
+                }
+            </li>
+            <li><a asp-controller="Auth" asp-action="SignIn" class="btn-gray"><i class="fa-solid fa-right-to-bracket"></i><span>Sign in</span></a></li>
+            <li><a asp-controller="Auth" asp-action="SignUp" class="btn-theme"><i class="fa-solid fa-user"></i><span>Sign up</span></a></li>
+        </ul>
+    </nav>
+</div>
+
+
+
+
+
+
+
+
+                @* &#9776; *@

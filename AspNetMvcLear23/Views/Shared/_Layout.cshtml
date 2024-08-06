@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Lear23</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/07486d9066.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/AspNetMvcLear23.styles.css" asp-append-version="true" />
+</head>
+<body class="flex flex-col min-h-screen">
+    <header class="bg-slate-400 py-4">
+        <div class="custom-container">
+            <partial name="~/Views/Shared/HeaderAndFooter/_Header.cshtml" />
+        </div>
+       
+    </header>
+    <main class="flex-grow">
+
+        @RenderBody()
+    </main>          
+
+    <footer class="bg-slate-400 py-4 text-center">
+        <partial name="~/Views/Shared/HeaderAndFooter/_Footer.cshtml" />
+   </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+@* Olika sätt att göra partials *@
+
+
+<div>
+    <partial name="~/Views/Shared/HomePartials/_Showcase.cshtml" />
+    
+    @await Html.PartialAsync("~/Views/Shared/HomePartials/_Feature.cshtml")
+</div>
