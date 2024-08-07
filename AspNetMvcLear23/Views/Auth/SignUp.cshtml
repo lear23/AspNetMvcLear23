@@ -1,5 +1,66 @@
-﻿
+﻿@using AspNetMvcLear23.ViewModels
+@model SignUpViewModel
+
 @{
-    ViewData["Title"] = "Sign Up";
+    ViewData["Title"] = Model.Title;
 
 }
+
+
+<section id="createAccount" class="custom-container px-6 sm:px-12 lg:px-20 xl:px-40 pt-10 pb-10">
+    <div class="flex justify-center items-center">
+        <form method="post" class="block w-full sm:w-[90%] md:w-[75%] lg:w-[55%] xl:w-[80%] p-7" novalidate>
+
+            @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
+            {
+                <div class="errorEmail">
+                    @ViewData["ErrorMessage"]
+                </div>
+            }
+            <h1 class="text-2xl font-bold mb-4">Create Account</h1>
+            <p class="text-xs mb-4">Already have an account? <a href="/SignIn" class="text-blue-600">Sign in here.</a></p>
+
+            <div class="flex flex-col mb-5">
+                <label asp-for="SignUpModel.FirstName" class="font-bold mb-1">First name</label>
+                <span asp-validation-for="SignUpModel.FirstName" class="text-red-500"></span>
+                <input asp-for="SignUpModel.FirstName" placeholder="Enter your first name" class="p-2 mt-1 border-2 border-gray-200 rounded-lg w-full placeholder-gray-500 text-sm" />
+
+            </div>
+            <div class="flex flex-col mb-5">
+                <label asp-for="SignUpModel.LastName" class="font-bold mb-1">Last name</label>
+                <span asp-validation-for="SignUpModel.LastName" class="text-red-500"></span>
+                <input asp-for="SignUpModel.LastName" placeholder="Enter your last name" class="p-2 mt-1 border-2 border-gray-200 rounded-lg w-full placeholder-gray-500 text-sm" />
+
+            </div>
+
+            <div class="flex flex-col mb-5">
+                <label asp-for="SignUpModel.Email" class="font-bold mb-1">Email address</label>
+                <span asp-validation-for="SignUpModel.Email" class="text-red-500"></span>
+                <input asp-for="SignUpModel.Email" placeholder="Enter your email address" class="p-2 mt-1 border-2 border-gray-200 rounded-lg w-full placeholder-gray-500 text-sm" />
+
+            </div>
+            <div class="flex flex-col mb-5">
+                <label asp-for="SignUpModel.Password" class="font-bold mb-1">Password</label>
+                <span asp-validation-for="SignUpModel.Password" class="text-red-500"></span>
+                <input asp-for="SignUpModel.Password" type="password" placeholder="********" class="p-2 mt-1 border-2 border-gray-200 rounded-lg w-full placeholder-gray-500 text-sm" />
+              
+            </div>
+            <div class="flex flex-col mb-5">
+                <label asp-for="SignUpModel.ConfirmPassword" class="font-bold mb-1">Confirm Password</label>
+                <span asp-validation-for="SignUpModel.ConfirmPassword" class="text-red-500"></span>
+                <input asp-for="SignUpModel.ConfirmPassword" type="password" placeholder="********" class="p-2 mt-1 border-2 border-gray-200 rounded-lg w-full placeholder-gray-500 text-sm" />
+          
+            </div>
+
+            <div class="flex items-center mb-2">
+                <input asp-for="SignUpModel.Terms" class="mr-2" />
+                <label asp-for="SignUpModel.Terms" class="text-sm">
+                    I agree to the <a href="/Terms" class="text-blue-600">Terms</a> & <a href="/Conditions" class="text-blue-600">Conditions</a>.
+                </label>
+            </div>
+            <span asp-validation-for="SignUpModel.Terms" class="mb-5 text-red-500"></span>
+
+            <button type="submit" class="btn-theme bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">Sign Up</button>
+        </form>
+    </div>
+</section>
