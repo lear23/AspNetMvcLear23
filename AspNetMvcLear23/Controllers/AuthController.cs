@@ -30,7 +30,7 @@ public class AuthController : Controller
     #endregion
 
 
-    #region
+    #region SignIn
 
 
 
@@ -46,10 +46,17 @@ public class AuthController : Controller
 
     [Route("/signin")]
     [HttpPost]
-    public IActionResult SignIn(SignInViewModel model)
+    public IActionResult SignIn(SignInViewModel viewmodel)
     {
+        
+
         if (!ModelState.IsValid)
-            return View(model);
+        {
+         
+            return View(viewmodel);
+        }
+
+        viewmodel.ErrorMessage = "Invalid Email or password";
 
         return RedirectToAction("Details", "Auth");
     }
