@@ -1,12 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace AspNetMvcLear23.Controllers
+namespace AspNetMvcLear23.Controllers;
+
+public class AuthController : Controller
 {
-    public class AuthController : Controller
+
+    [Route("/signup")]
+    public IActionResult SignUp()
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        return View();
     }
+
+    
+
+
 }
