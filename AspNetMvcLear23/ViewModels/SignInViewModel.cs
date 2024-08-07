@@ -7,5 +7,7 @@ namespace AspNetMvcLear23.ViewModels
         public string Title { get; set; } = "Sign In";
         public SignInModel Model { get; set; } = new SignInModel();
 
+        public string? ErrorMessage { get; set; } 
+
     }
 }
