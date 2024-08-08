@@ -58,7 +58,7 @@ public class AuthController : Controller
 
         viewmodel.ErrorMessage = "Invalid Email or password";
 
-        return RedirectToAction("Details", "Auth");
+        return RedirectToAction("Details", "Account");
     }
 
     #endregion

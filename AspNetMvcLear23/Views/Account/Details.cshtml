@@ -1,0 +1,101 @@
+﻿@model AccountDetailsViewModel
+
+@{
+
+}
+
+@* <div class="custom-container grid grid-cols-4 gap-4 "> *@
+
+<div class="custom-container flex flex-col lg:grid lg:grid-cols-4 lg:gap-4">
+
+    <partial name="~/Views/Shared/AsideAccount/AsideAccount.cshtml" />
+
+    <section class="col-span-3 flex flex-row py-20 pl-4 lg:flex-col lg:items-center w-full">     
+
+        <div class="flex flex-col w-full gap-7 lg:py-5">
+
+            <a href="#"><img src="images/userAvatar.svg" alt="" class="w-auto h-auto"></a>
+
+            @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
+            {
+                <div class="text-red-500">
+                    @ViewData["ErrorMessage"]
+                </div>
+            }
+
+            <form class="flex flex-col " asp-controller="Account" asp-action="Details" novalidate>
+                <h1 class="text-2xl font-bold mb-4">Account Details</h1>
+                <h5 class="text-lg font-semibold mb-4">Basic Info</h5>
+                <div class="flex flex-col lg:flex-row gap-5 mb-5">
+                    <div class="flex flex-col w-full gap-2">
+                        <label asp-for="BasicInfo.FirstName" class="font-semibold">First name</label>
+                        <span asp-validation-for="BasicInfo.FirstName" class="text-red-500"></span>
+                        <input asp-for="BasicInfo.FirstName" placeholder="Enter your first name" class="border border-gray-300 rounded-lg p-2 mb-4 w-full">
+                    </div>
+                    <div class="flex flex-col w-full gap-2">
+                        <label asp-for="BasicInfo.LastName" class="font-semibold">Last name</label>
+                        <span asp-validation-for="BasicInfo.LastName" class="text-red-500"></span>
+                        <input asp-for="BasicInfo.LastName" placeholder="Enter your last name" class="border border-gray-300 rounded-lg p-2 mb-4 w-full">
+                    </div>
+                </div>
+                <div class="flex flex-col lg:flex-row gap-5 mb-5">
+                    <div class="flex flex-col w-full gap-2">
+                        <label asp-for="BasicInfo.Email" class="font-semibold">Email Address</label>
+                        <span asp-validation-for="BasicInfo.Email" class="text-red-500"></span>
+                        <input asp-for="BasicInfo.Email" placeholder="jhon.doe@domain.com" class="border border-gray-300 rounded-lg p-2 mb-4 w-full">
+                    </div>
+                    <div class="flex flex-col w-full gap-2">
+                        <label asp-for="BasicInfo.Phone" class="font-semibold">Phone</label>
+                        <span asp-validation-for="BasicInfo.Phone" class="text-red-500"></span>
+                        <input asp-for="BasicInfo.Phone" placeholder="Enter your phone" class="border border-gray-300 rounded-lg p-2 mb-4 w-full">
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4 mb-8">
+                    <label asp-for="BasicInfo.Bio" class="font-semibold">Bio (optional)</label>
+                    <textarea asp-for="BasicInfo.Bio" cols="10" rows="2" placeholder="Add a short bio" class="border border-gray-300 rounded-lg p-2"></textarea>
+                </div>
+
+                <div class="flex gap-7 mt-8">
+                    <button class="bg-gray-300 text-black rounded-lg py-2 px-4 hover:bg-gray-400" type="reset">Cancel</button>
+                    <button class="bg-blue-600 text-white rounded-lg py-2 px-4 hover:bg-blue-700" type="submit">Save Changes</button>
+                </div>
+            </form>
+
+            <hr class="my-6">
+
+            <form class="flex flex-col gap-4" asp-controller="Account" asp-action="Details" novalidate>
+                <h5 class="text-lg font-semibold mb-4">Address</h5>
+
+                <label asp-for="AddressModel.Address1" class="font-semibold">Address line 1</label>
+                <span asp-validation-for="AddressModel.Address1" class="text-red-500"></span>
+                <input asp-for="AddressModel.Address1" placeholder="Enter your address line" class="border border-gray-300 rounded-lg p-2 mb-4 w-full">
+
+                <label asp-for="AddressModel.Address2" class="font-semibold">Address line 2 (optional)</label>
+                <span asp-validation-for="AddressModel.Address2" class="text-red-500"></span>
+                <input asp-for="AddressModel.Address2" placeholder="Enter your address line" class="border border-gray-300 rounded-lg p-2 mb-4 w-full">
+
+                <div class="flex flex-col lg:flex-row gap-7 mb-8">
+                    <div class="flex flex-col w-full gap-2">
+                        <label asp-for="AddressModel.PostalCode" class="font-semibold">Postal Code</label>
+                        <span asp-validation-for="AddressModel.PostalCode" class="text-red-500"></span>
+                        <input asp-for="AddressModel.PostalCode" placeholder="Enter your postal code" class="border border-gray-300 rounded-lg p-2 mb-4 w-full">
+                    </div>
+                    <div class="flex flex-col w-full gap-2">
+                        <label asp-for="AddressModel.City" class="font-semibold">City</label>
+                        <span asp-validation-for="AddressModel.City" class="text-red-500"></span>
+                        <input asp-for="AddressModel.City" placeholder="Enter your city" class="border border-gray-300 rounded-lg p-2 mb-4 w-full">
+                    </div>
+                </div>
+
+                <div class="flex gap-7 mt-8">
+                    <button id="btn-address-reset" type="reset" class="bg-gray-300 text-black rounded-lg py-2 px-4 hover:bg-gray-400">Cancel</button>
+                    <button id="btn-address-submit" type="submit" class="bg-blue-600 text-white rounded-lg py-2 px-4 hover:bg-blue-700">Save Changes</button>
+                </div>
+            </form>
+
+        </div>
+    </section>
+</div>
+
+

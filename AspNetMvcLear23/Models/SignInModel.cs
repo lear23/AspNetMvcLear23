@@ -8,7 +8,7 @@ namespace AspNetMvcLear23.Models
         [Display(Name = "Email address", Prompt = "Enter your email address", Order = 0)]
         [DataType(DataType.EmailAddress)]
         [Required(ErrorMessage = "Email address is required")]
-        [RegularExpression(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", ErrorMessage = "Your email address is invalid")]
+        //[RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid email address")]
         public string Email { get; set; } = null!;
 
         [Display(Name = "Password", Prompt = "Enter your password", Order = 1)]

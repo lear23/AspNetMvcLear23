@@ -1,0 +1,46 @@
+﻿@model AccountDetailsViewModel
+@{
+    // ViewData["Title"] = $"{@Model.ProfileInfo.FirstName} {@Model.ProfileInfo.LastName}";
+}
+
+
+ <aside class="col-span-1 flex flex-col lg:border-r lg:border-gray-300 mt-24 gap-8 lg:pr-0 lg:pb-8 w-full lg:w-full mx-auto lg:mx-0">
+
+
+
+    <div class="lg:flex lg:flex-col lg:text-start gap-4 flex justify-center ">
+        <a href="#"><img src="~/Images/avatar.svg" alt="avatar" class="w-20 h-20 rounded-full"></a>
+
+        @if (Model != null && Model!.ProfileInfo != null)
+        {
+            <div class="flex flex-col">
+                <h3 class="text-lg font-semibold">@Model!.ProfileInfo.FirstName @Model.ProfileInfo.LastName</h3>
+                <p class="text-gray-600">@Model.ProfileInfo.Email</p>
+            </div>
+        }
+    </div>
+
+    <nav class="lg:flex lg:flex-col lg:text-start gap-4 flex justify-center ">
+        <a class="flex items-center p-2 mr-4 rounded-lg hover:bg-blue-600 hover:text-white transition-colors" asp-controller="Account" asp-action="Details">
+            <img src="~/Images/bx-cog.svg" alt="" class="w-6 h-6 mr-2">
+            <span class="hidden lg:inline">Account Details</span>
+        </a>
+
+        <a class="flex items-center p-2 mr-4 rounded-lg hover:bg-blue-600 hover:text-white transition-colors" asp-controller="Security" asp-action="Security">
+            <img src="~/Images/bx-lock-alt.svg" alt="" class="w-6 h-6 mr-2">
+            <span class="hidden lg:inline">Security</span>
+        </a>
+
+        <a class="flex items-center p-2 mr-4 rounded-lg hover:bg-blue-600 hover:text-white transition-colors" asp-controller="SavedCourses" asp-action="SavedCourses">
+            <img class="w-6 h-6 mr-2" src="~/Images/savedcourse.svg" alt="">
+            <span class="hidden lg:inline">Saved Courses</span>
+        </a>
+
+        <a class="flex items-center p-2 mr-4 rounded-lg hover:bg-blue-600 hover:text-white transition-colors" asp-controller="Auth" asp-action="SignOut">
+            <img src="~/Images/bx-log-out.svg" alt="" class="w-6 h-6 mr-2">
+            <span class="hidden lg:inline">Sign Out</span>
+        </a>
+    </nav>
+
+</aside>
+
