@@ -8,5 +8,8 @@ namespace AspNetMvcLear23.Controllers
         {
             return View();
         }
+
+
+        public IActionResult Error(int statusCode) => View();
     }
 }
